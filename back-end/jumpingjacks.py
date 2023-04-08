@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import PoseModule
 
-cap = cv2.VideoCapture('jumpingjacks.mp4')
+cap = cv2.VideoCapture("jumping-jacks.mp4")
 
 detector = PoseModule.poseDetector()
 
@@ -29,10 +29,10 @@ while True:
         
         # percentage = np.interp(LarmAngle, (60, 130), (0, 100))
 
-        if direction == "up" and LarmAngle < 110:
+        if direction == "up" and LarmAngle < 110 and RarmAngle < x:
             repCount += 0.5
             direction = "down"
-        elif direction == "down" and LarmAngle > 170:
+        elif direction == "down" and LarmAngle > 170 and RarmAngle > x:
             repCount += 0.5
             direction = "up"
         
