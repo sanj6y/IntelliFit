@@ -1,5 +1,6 @@
 import cv2
 import mediapipe as mp
+import time
 import math
 
 
@@ -65,7 +66,7 @@ class poseDetector():
             cv2.circle(img, (x3, y3), 10, (0, 0, 255), cv2.FILLED)
             cv2.circle(img, (x3, y3), 15, (0, 0, 255), 2)
             cv2.putText(img, str(int(angle)), (x2 - 50, y2 + 50),
-                        cv2.FONT_HERSHEY_DUPLEX, 2, (0, 0, 255), 2)
+                        cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
         return angle
 
 def main():
@@ -82,11 +83,15 @@ def main():
             print(lmList[14])
             cv2.circle(img, (lmList[14][1], lmList[14][2]), 15, (0, 0, 255), cv2.FILLED)
 
-        cv2.putText(img, str("Pose Detector working W"), (70, 50), cv2.FONT_HERSHEY_DUPLEX, 1,
+        cTime = time.time()
+        fps = 1 / (cTime - pTime)
+        pTime = cTime
+
+        cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3,
                     (255, 0, 0), 3)
 
-        cv2.imshow("Frame", img)
-
+        cv2.imshow("Image", img)
+        
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
