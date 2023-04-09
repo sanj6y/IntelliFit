@@ -6,6 +6,7 @@ import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
 import WorkoutDisplay from "./Pages/WorkoutDisplay.jsx";
 import Dashboard from "./Pages/Dashboard.jsx";
+import Settings from "./Pages/Settings.jsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -19,6 +20,7 @@ root.render(
 				<Route path="/signin" element={<SignIn />} />
 				<Route path="/workout" element={<WorkoutDisplay />} />
 				<Route path="/dashboard" element={<Dashboard />} />
+				<Route path="/settings" element={<Settings />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>

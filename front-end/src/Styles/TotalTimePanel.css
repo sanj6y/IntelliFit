@@ -1,0 +1,26 @@
+.total-time-panel {
+	width: 500px;
+	/* border: 1px solid black; */
+	height: 300px;
+
+	border-radius: 1rem;
+	box-shadow: 0px 0px 30px grey;
+
+	text-align: left;
+
+	margin-left: 30px;
+}
+
+.total-time-panel .total-time-label {
+	font-weight: 600;
+	margin-top: 20%;
+	font-size: 25pt;
+	margin-left: 20px;
+}
+
+.total-time-panel .workout-mins {
+	font-weight: normal;
+	font-size: 20pt;
+	color: grey;
+	margin-left: 20px;
+}

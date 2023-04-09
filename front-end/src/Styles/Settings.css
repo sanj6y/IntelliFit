@@ -1,0 +1,9 @@
+.settings-holder {
+	display: flex;
+	flex-direction: row;
+}
+
+.settings-holder .settings-content {
+	display: flex;
+	flex-direction: column;
+}
