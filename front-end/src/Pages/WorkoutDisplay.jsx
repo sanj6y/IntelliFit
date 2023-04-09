@@ -5,7 +5,7 @@ import CameraComponent from '../Components/CameraComponent'
 export default function WorkoutDisplay() {
 
     return (
-        <div>
+        <div className='workout-display-holder'>
             <CameraComponent />
         </div>
     )
