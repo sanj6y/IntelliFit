@@ -8,6 +8,7 @@ cap = cv2.VideoCapture('Videos/squats.mp4')
 detector = PoseModule.poseDetector()
 repCount = 0
 direction = "down"
+accuracy = 1
 
 while True:
     ret, frame = cap.read()
@@ -31,8 +32,10 @@ while True:
         if direction == "down" and (LlegAngle < 82 or RlegAngle < 60):
             repCount += 0.5
             direction = "up"
+            accuracy = (1 - abs(RlegAngle - 90) / 100)
         
         print(repCount)
+        print(accuracy)
         
     
     cv2.imshow("Squats Detector", frame)
