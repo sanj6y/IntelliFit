@@ -39,9 +39,8 @@ while True:
         elif direction == "down" and LarmAngle > 170 and RarmAngle < 190:
             repCount += 0.5
             direction = "up"
-        
-        print(repCount)
 
+        print(repCount)
 
         cv2.imshow("Jumping Jacks Detector", frame)
 

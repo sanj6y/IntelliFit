@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import Home from "./Pages/Home.jsx";
 import SignIn from "./Pages/SignIn";
+import Reset from "./Pages/Reset.jsx"
 import SignUp from "./Pages/SignUp";
 import WorkoutDisplay from "./Pages/WorkoutDisplay.jsx";
 import Dashboard from "./Pages/Dashboard.jsx";
@@ -17,6 +18,8 @@ root.render(
 				<Route path="/" element={<Home />} />
 				<Route path="/signup" element={<SignUp />} />
 				<Route path="/signin" element={<SignIn />} />
+				<Route path="/main" element={<WorkoutDisplay />} />
+				<Route path="/reset" element={<Reset/>} />
 				<Route path="/workout" element={<WorkoutDisplay />} />
 				<Route path="/dashboard" element={<Dashboard />} />
 			</Routes>
