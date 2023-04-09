@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Styles/Sidebar.css'
 import logo from "../logo.png"
-
+import { auth, db, logout} from '../firebase'
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 const img = require("../logo.png")
@@ -22,7 +22,7 @@ export default function Sidebar() {
                 <button><i class="bi bi-gear-fill"/>Settings</button>
             </div>
 
-            <button className='logout-button'><i class="bi bi-box-arrow-left"/>Logout</button>
+            <button className='logout-button' onClick={()=>{logout()}}><i class="bi bi-box-arrow-left"/>Logout</button>
         </div>
     )
 }

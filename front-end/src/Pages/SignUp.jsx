@@ -35,15 +35,15 @@ function Register() {
             <div className="welcome-panel">
                 <div className='welcome sign'>
                     <div className="title sign">
-                        <img src={logo} width={85} height={55}/>
+                        <img src={logo} width={85} height={55} />
                     </div>
                     <div className='title-holder-holder sign'>
                         <h2>
                             Sign Up
                         </h2>
-                        <hr/>
+                        <hr />
                     </div>
-                    <input 
+                    <input
                         placeholder="Full Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -63,17 +63,17 @@ function Register() {
                         onChange={(e) => { setConfPass(e.target.value); e.target.style.border = "none" }} placeholder="Confirm Password" type="password"
                         className="password conf" />
                     <button className="login signup" onClick={confirmPass}>
-                      Sign up
+                        Sign up
                     </button>
 
                     <div className='holder-link-holder-holder-holder sign'>
-                    <Link to="/signin" className="sign-up-button">
-                        <span>Sign in</span>
-                    </Link>
-                    <Link to="/reset" className="forgot-password">
-                    <span>Forgot password?</span>
-                    </Link>
-                </div>
+                        <Link to="/signin" className="sign-up-button">
+                            <span>Sign in</span>
+                        </Link>
+                        <Link to="/reset" className="forgot-password">
+                            <span>Forgot password?</span>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

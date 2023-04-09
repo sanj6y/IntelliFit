@@ -21,49 +21,49 @@ function SignIn() {
     if (currUser) nav('/dashboard');
   }, [currUser, loading]);
 
-  return (
-    <div className="holder">
-      <div className="welcome-panel">
-        <div className="welcome">
-          <div className="title">
-            <img src={logo} width={85} height={55}/>
-          </div>
-          <div className='title-holder-holder'>
-            <h2>
-              Sign in
-            </h2>
-            <hr/>
-          </div>
-          <input
-            value={email}
-            placeholder="E-mail"
-            type="email"
-            className="email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
-            placeholder="Password"
-            type="password"
-            className="password"
-          />
-          <button className="login" onClick={() => login(email, pass)}>
-            Login
-          </button>
-          <div className='holder-link-holder-holder'>
-            <Link to="/signup" className="sign-up-button">
-                <span>Sign up</span>
-              </Link>
-            <Link to="/reset" className="forgot-password">
-              <span>Forgot password?</span>
-            </Link>
-          </div>
-        </div>
+    return (
+        <div className="holder">
+            <div className="welcome-panel">
+                <div className="welcome">
+                    <div className="title">
+                        <img src={logo} width={85} height={55} />
+                    </div>
+                    <div className='title-holder-holder'>
+                        <h2>
+                            Sign in
+                        </h2>
+                        <hr />
+                    </div>
+                    <input
+                        value={email}
+                        placeholder="E-mail"
+                        type="email"
+                        className="email"
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <input
+                        value={pass}
+                        onChange={(e) => setPass(e.target.value)}
+                        placeholder="Password"
+                        type="password"
+                        className="password"
+                    />
+                    <button className="login" onClick={() => login(email, pass)}>
+                        Login
+                    </button>
+                    <div className='holder-link-holder-holder'>
+                        <Link to="/signup" className="sign-up-button">
+                            <span>Sign up</span>
+                        </Link>
+                        <Link to="/reset" className="forgot-password">
+                            <span>Forgot password?</span>
+                        </Link>
+                    </div>
+                </div>
 
-      </div>
-    </div>
-  );
+            </div>
+        </div>
+    );
 }
 
 export default SignIn;

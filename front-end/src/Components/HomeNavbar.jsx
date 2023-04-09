@@ -13,8 +13,8 @@ export default function HomeNavbar() {
         <div className='homeNavbar'>
             <div className='logo-holder'><img src={logo} /><h3>IntelliFit</h3></div>
             <div className="login-buttons">
-                <button onClick={() => { nav("/signin") }}>Log in</button>
-                <button>Sign up</button>
+                <a target="_blank" href='/signin'><button>Log in</button></a>
+                <a target="_blank" href='/signup'><button>Sign up</button></a>
             </div>
         </div>
     )

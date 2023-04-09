@@ -5,25 +5,28 @@
 }
 
 .dashboard-holder .name-label {
-	width: calc(100vw - 250px);	
-	position: relative;
-	text-align: end;
-	height: 75px;
+	position: absolute;
+	top:0;
+	width: calc(100vw - 250px);
 	background: #3a154d;
 	text-align: center;
+	height: 60px;
 }
 
 .name-label h2 {
+	text-align: end;
 	padding: 0px 0px;
+	margin-top: 15px;
 	font-size: 18px;
-	color: white;
-	font-weight: 200;
+	margin-right: 30px;
+	color: rgb(189, 120, 208);
+	font-weight: 300;
 }
 
 .right-side-holder {
 	display: flex;
 	flex-direction: column;
-	overflow-y: hidden;
+	overflow: hidden;
 }
 
 .dashboard-holder .top-half-holder {
