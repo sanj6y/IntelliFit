@@ -16,7 +16,7 @@ function Reset() {
             return;
         }
         if (currUser) {
-            // nav("/");
+            nav("/dashboard");
             logout();
         }
     }, [currUser, loading]);

@@ -9,17 +9,17 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, login } from '../firebase';
 import '../Styles/SignIn.css';
 function SignIn() {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
-    const [currUser, loading, err] = useAuthState(auth);
-    const nav = useNavigate();
-    useEffect(() => {
-        if (loading) {
-            // future implementation of loading screen
-            return;
-        }
-        if (currUser) nav('/dashboard');
-    }, [currUser, loading]);
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
+  const [currUser, loading, err] = useAuthState(auth);
+  const nav = useNavigate();
+  useEffect(() => {
+    if (loading) {
+      // future implementation of loading screen
+      return;
+    }
+    if (currUser) nav('/dashboard');
+  }, [currUser, loading]);
 
     return (
         <div className="holder">

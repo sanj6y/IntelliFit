@@ -8,6 +8,7 @@ detector = PoseModule.poseDetector()
 
 repCount = 0
 direction = "up"
+accuracy = 'N/A'
 
 while True:
     ret, frame = cap.read()
@@ -36,11 +37,13 @@ while True:
         if direction == "up" and lBody < 45 and rBody < 45:
             repCount += 0.5
             direction = "down"
+            accuracy = (1 - (lBody - 35) / 100)
         elif direction == "down" and lBody > 135 and rBody > 135:
             repCount += 0.5
             direction = "up"
 
         print(repCount)
+        print(accuracy)
 
         cv2.imshow("Situps Detector", frame)
 

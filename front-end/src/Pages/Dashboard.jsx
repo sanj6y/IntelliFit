@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import Sidebar from '../Components/Sidebar'
 
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { auth, db } from '../firebase'
 
 import {
@@ -26,12 +27,28 @@ import WorkoutSet from '../Components/WorkoutSet'
 
 export default function Dashboard() {
 
-    const [name, setName] = useState("Anurag")
+    const nav = useNavigate();
+    const [name, setName] = useState("")
     const [lastWorkouts, setLastWorkouts] = useState(['workout1', 'workout2', 'workout3', 'workout4'])
 
     const [allWorkouts, setAllWorkouts] = useState([])
     const [currUser, loading] = useAuthState(auth)
     const [user, setUser] = useState('')
+
+    const fetchUserName = async () => {
+        try {
+            const q = query(
+                collection(db, 'users'),
+                where('uid', '==', currUser?.uid)
+            );
+            const doc = await getDocs(q);
+            const data = doc.docs[0].data();
+            setName(data.name);
+        } catch (err) {
+            alert('An error had occurred while fetching the users name');
+            console.log(err)
+        }
+    };
 
     const sortArray = (arr) => {
         arr = arr.sort((a, b) => {
@@ -48,6 +65,8 @@ export default function Dashboard() {
     }
 
     useEffect(() => {
+
+        if (!currUser) return nav('/');
         let allWorkoutsArr = []
 
         const getDefaultWorkouts = async () => {
@@ -109,6 +128,7 @@ export default function Dashboard() {
         }
 
         getUserWorkouts()
+        fetchUserName();
 
     }, [])
 
@@ -117,7 +137,9 @@ export default function Dashboard() {
             <Sidebar />
 
             <div className="right-side-holder">
-                <div className='name-label'><h2>Hello, {name}!</h2></div>
+                <div className='name-label'>
+                    <h2>Welcome, {name.indexOf(" ") !== -1 ? name.substring(0, name.indexOf(" ")) : name}!</h2>
+                </div>
                 <div className='top-half-holder'>
                     <TotalTimePanel />
                     <WorkoutChooser />

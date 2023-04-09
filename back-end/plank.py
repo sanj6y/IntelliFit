@@ -9,6 +9,7 @@ detector = PoseModule.poseDetector()
 
 repCount = 0
 direction = "up"
+accuracy = "N/A"
 
 while True:
     ret, frame = cap.read()
@@ -41,10 +42,11 @@ while True:
             repCount += 0.5
             direction = "up"
         
-        print(1 - abs(midAngle - 190) / 100)
+        accuracy = (1 - abs(midAngle - 190) / 100)
 
+        print(accuracy)
 
-        cv2.imshow("Pushups Detector", frame)
+        cv2.imshow("Plank Detector", frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break

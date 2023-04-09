@@ -8,6 +8,7 @@ detector = PoseModule.poseDetector()
 
 repCount = 0
 side = "left"
+accuracy = "N/A"
 
 while True:
     ret, frame = cap.read()
@@ -36,12 +37,14 @@ while True:
         if side == "left" and LlegAngle < 55 and RlegAngle < 130:
             repCount += 1
             side = "right"
+            accuracy = (1 - abs(LlegAngle - 60) / 100)
         elif side == "right" and LlegAngle < 130 and RlegAngle < 110:
             repCount += 1
             side = "left"
+            accuracy = (1 - abs(RlegAngle - 90) / 100)
         
         print(repCount)
-
+        print(accuracy)
 
         cv2.imshow("Lunges Detector", frame)
 
