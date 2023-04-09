@@ -1,0 +1,227 @@
+
+
+.weather {
+    background-color: black;
+}
+
+.holder{
+    align-items: center;
+    justify-content: center;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.welcome-panel {
+    border-radius: 30px;
+    margin-top: 25vh;
+    justify-content: center;
+    overflow: hidden;
+    display: flex;
+    min-width: 400px;
+    flex-direction: column;
+    background: transparent;
+    background: white;
+    height: 600px;
+}
+
+.side-panel {
+    background: transparent;
+}
+
+.welcome {
+    background: rgb(255, 255, 255);
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    /* background:rgba(238, 234, 234, 0.399); */
+    width: 300px;
+    /* position: absolute; */
+    height: 500px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.title {
+    margin-top: 10px;
+    font-family: Helvetica;
+    background: rgb(51, 33, 88);
+    color: black;
+    align-self: center;
+    height: 60px;
+    border-radius: 100px;
+    font-size: 2em;
+    display: flex;
+    padding-left: 12px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 5px 20px 5px rgb(219, 209, 250);
+}
+
+.title-holder-holder{
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+.title-holder-holder h2{
+    font-size: 30px;
+    color: rgb(111, 111, 111);
+}
+
+.title b {
+    background: transparent;
+    font-weight: 200;
+}
+
+
+input {
+    /* text-align: left; */
+    font-size: 15px;
+    border: none;
+    border-radius: 0.5em;
+    height: 46px;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 1.3em;
+    box-shadow: 0px 5px 20px 5px rgb(234, 234, 234);
+}
+
+input.signup{
+    min-height: 43px;
+}
+
+.login {
+    font-size: 1em;
+    border: none;
+    border-radius: 0.5em;
+    height: 45px;
+    background: rgb(134, 104, 223);
+    color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: 20px;
+    /* box-shadow: 0px 5px 20px 5px rgb(196, 147, 221); */
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.login:hover {
+    background-color: rgb(124, 94, 213);
+    cursor: pointer;
+}
+
+.login.signup{
+    margin-top: 10px;
+    min-height: 45px;
+}
+
+.noo-account {
+    font-family: sans-serif;
+    font-size: 0.5rem;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    background: rgb(255, 255, 255);
+    margin-top: 20px;
+    width: 300px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    align-items: center;
+    white-space: nowrap;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.forgot-password {
+    font-weight: 200;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    margin-left: 5.5em;
+}
+
+h1 {
+    color: rgb(188, 187, 187);
+    background: transparent;
+    font-weight: 200;
+}
+
+
+span {
+    background: transparent;
+    padding: 0;
+    color: rgb(174, 174, 181);
+    text-decoration: none;
+}
+
+.forgot-password {
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    color: rgb(174, 174, 181);
+    text-decoration: underline;
+}
+
+.sign-up-button {
+    text-decoration: none;
+    background: transparent;
+}
+
+
+.sign-up-button:hover {
+    color: rgb(174, 174, 181);
+    text-decoration: underline;
+}
+
+.holder-link-holder{
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.holder-link-holder.signup{
+    margin-top: 20px;
+}
+
+
+.welcomes.reset{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input.email.reset{
+    width: 270px;
+}
+.welcome-panel.reset{
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    padding-left: 50px;
+    padding-right: 50px;
+    max-width: 300px;
+    min-width: 300px;
+}
+
+.login.reset{
+    width: 300px;
+}
+.holder-link-holder.reset{
+    display: flex;
+}
+
+.reset-navbar{
+    display: flex;
+    width: 300px;
+    margin-top: 40px;
+    justify-content: space-between;
+}
+.forgot-password.reset{
+    margin-left: 0px;
+}
+
+@media screen and (max-width: 800px){
+    .welcome-panel{
+        margin-top: 150px;
+    }
+}
