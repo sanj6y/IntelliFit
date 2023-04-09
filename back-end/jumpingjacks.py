@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import PoseModule
 
-cap = cv2.VideoCapture("Videos/jumping-jacks.mp4")
+cap = cv2.VideoCapture(1)
 
 detector = PoseModule.poseDetector()
 
