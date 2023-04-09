@@ -1,26 +1,15 @@
 import cv2
 import numpy as np
 import PoseModule
-import tensorflow as tf
-
-
-# json_file_path = 'model.json'
-# with open(json_file_path, "r") as json_file:
-#     json_savedModel= json_file.read()
-# model_json = tf.keras.models.model_from_json(json_savedModel)
-# model_json = tf.keras.models.load_weight
-# model_json.save("model.h5", save_format="hf")
 
 cap = cv2.VideoCapture('Videos/curls.mov')
 
-detector = PoseModule.poseDetector(1)
+detector = PoseModule.poseDetector()
 repCount = 0
 direction = "up"
-model = tf.keras.models.load_model('model.json')
 
 while True:
     ret, frame = cap.read()
-    frame = cv2.flip(frame, 1)
     frame = detector.findPose(frame, False)
     landmarks = detector.findPosition(frame, False)
 
@@ -37,7 +26,7 @@ while True:
 
         print(repCount)
 
-    cv2.imshow("Squats Detector", frame)
+    cv2.imshow("Curls Detector", frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
