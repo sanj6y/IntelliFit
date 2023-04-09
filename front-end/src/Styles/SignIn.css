@@ -1,19 +1,22 @@
-
-
-.weather {
-    background-color: black;
-}
-
 .holder{
     align-items: center;
     justify-content: center;
     margin-left: 0px;
     padding-left: 0px;
+    overflow-y: hidden;
+}
+
+.holder.reset{
+    height: 800px;
+    align-items: center;
+    margin-left: 0px;
+    padding-left: 0px;
+    overflow-y: hidden;
 }
 
 .welcome-panel {
     border-radius: 30px;
-    margin-top: 25vh;
+    margin-top: 10vh;
     justify-content: center;
     overflow: hidden;
     display: flex;
@@ -21,8 +24,9 @@
     flex-direction: column;
     background: transparent;
     background: white;
-    height: 600px;
+    height: 800px;
 }
+
 
 .side-panel {
     background: transparent;
@@ -36,13 +40,19 @@
     /* background:rgba(238, 234, 234, 0.399); */
     width: 300px;
     /* position: absolute; */
-    height: 500px;
+    height: 575px;
+    border-radius: 20px;
     padding-left: 40px;
     padding-right: 40px;
+    box-shadow: 0px 5px 20px 5px rgb(238, 238, 238);
+}
+
+.welcome.sign{
+    height: 600px;
 }
 
 .title {
-    margin-top: 10px;
+    margin-top: 40px;
     font-family: Helvetica;
     background: rgb(51, 33, 88);
     color: black;
@@ -51,21 +61,44 @@
     border-radius: 100px;
     font-size: 2em;
     display: flex;
-    padding-left: 12px;
+    padding-left: 8px;
     padding-top: 25px;
-    padding-bottom: 25px;
-    padding-right: 10px;
-    margin-bottom: 10px;
+    padding-bottom: 18px;
+    padding-right: 8px;
+    margin-bottom: 15px;
     box-shadow: 0px 5px 20px 5px rgb(219, 209, 250);
+    overflow-y: hidden;
 }
+
+.title.sign{
+    margin-top: 20px;
+    height: 60px;
+}
+
+
 
 .title-holder-holder{
     margin-top: 10px;
     margin-bottom: 50px;
+    overflow-y: hidden;
+}
+
+.title-holder-holder.sign{
+    /* height: 80px; */
+    margin-bottom: 20px;
+}
+
+.title-holder-holder.reset{
+    width:300px;
+    margin-bottom: 0px;
 }
 .title-holder-holder h2{
     font-size: 30px;
+    font-weight: 100;
     color: rgb(111, 111, 111);
+}
+
+.title-holder-holder.sign{
 }
 
 .title b {
@@ -74,7 +107,7 @@
 }
 
 
-input {
+.holder input {
     /* text-align: left; */
     font-size: 15px;
     border: none;
@@ -86,16 +119,17 @@ input {
     box-shadow: 0px 5px 20px 5px rgb(234, 234, 234);
 }
 
-input.signup{
+.holder input.signup{
     min-height: 43px;
 }
 
 .login {
     font-size: 1em;
     border: none;
+    font-weight: 100;
     border-radius: 0.5em;
     height: 45px;
-    background: rgb(134, 104, 223);
+    background:  rgb(51, 33, 88);
     color: white;
     padding-left: 1em;
     padding-right: 1em;
@@ -105,7 +139,7 @@ input.signup{
 }
 
 .login:hover {
-    background-color: rgb(124, 94, 213);
+    background:  rgb(82, 66, 111);
     cursor: pointer;
 }
 
@@ -147,6 +181,7 @@ h1 {
 
 
 span {
+    font-weight: 200;
     background: transparent;
     padding: 0;
     color: rgb(174, 174, 181);
@@ -173,19 +208,32 @@ span {
     text-decoration: underline;
 }
 
-.holder-link-holder{
-    margin-top: 70px;
+.holder-link-holder-holder{
+    margin-top: 40px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    font-size: 15px;
 }
 
-.holder-link-holder.signup{
-    margin-top: 20px;
+.holder-link-holder-holder span {
+    display: flex;
+    font-size: 15px;
+    margin-left: 15px;
+}
+
+
+.holder-link-holder-holder.sign{
+    margin-top: 10px;
+    overflow-x: hidden;
+    display: flex;
 }
 
 
 .welcomes.reset{
+    padding-top: 25px;
     display: flex;
+    width: 350px;margin-right: 0px;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
 }
@@ -194,19 +242,25 @@ input.email.reset{
     width: 270px;
 }
 .welcome-panel.reset{
-    display: flex;
+    /* display: flex; */
+    position: relative;
     justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 20px 5px rgb(238, 238, 238);
     height: 500px;
-    padding-left: 50px;
-    padding-right: 50px;
-    max-width: 300px;
-    min-width: 300px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 400px;
+    align-items: center;
+    margin-right: 0px;
+    padding-right: 0px;
 }
+
 
 .login.reset{
     width: 300px;
 }
-.holder-link-holder.reset{
+.holder-link-holder-holder.reset{
     display: flex;
 }
 
@@ -219,6 +273,18 @@ input.email.reset{
 .forgot-password.reset{
     margin-left: 0px;
 }
+
+.holder-link-holder-holder-holder.sign{
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.holder.reset{
+    margin-top: 100px;
+    justify-content: center;
+    display: flex;
+}
+
 
 @media screen and (max-width: 800px){
     .welcome-panel{

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import Home from "./Pages/Home.jsx";
 import SignIn from "./Pages/SignIn";
+import Reset from "./Pages/Reset.jsx"
 import SignUp from "./Pages/SignUp";
 import WorkoutDisplay from "./Pages/WorkoutDisplay.jsx";
 
@@ -17,6 +18,7 @@ root.render(
 				<Route path="/signup" element={<SignUp />} />
 				<Route path="/signin" element={<SignIn />} />
 				<Route path="/main" element={<WorkoutDisplay />} />
+				<Route path="/reset" element={<Reset/>} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>

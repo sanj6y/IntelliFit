@@ -12,7 +12,7 @@ export default function Home() {
         <div className="home-holder">
             <HomeNavbar />
             <div className="image-slogan">
-                <h1>IntelliFit.</h1>
+                <h1>IntelliFit</h1>
                 <TypeAnimation sequence={[' Revolutionizing Workouts.', 100]} className='sloganText' />
             </div>
 

@@ -18,7 +18,7 @@ function SignIn() {
       // future implementation of loading screen
       return;
     }
-    if (currUser) nav('/dash');
+    // if (currUser) nav('/dash');
   }, [currUser, loading]);
 
   return (
@@ -51,8 +51,8 @@ function SignIn() {
           <button className="login" onClick={() => login(email, pass)}>
             Login
           </button>
-          <div className='holder-link-holder'>
-            <Link to="/register" className="sign-up-button">
+          <div className='holder-link-holder-holder'>
+            <Link to="/signup" className="sign-up-button">
                 <span>Sign up</span>
               </Link>
             <Link to="/reset" className="forgot-password">
