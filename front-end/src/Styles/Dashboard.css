@@ -1,0 +1,35 @@
+.dashboard-holder {
+	display: flex;
+	align-items: center;
+	text-align: center;
+}
+
+.dashboard-holder .name-label {
+	width: calc(100vw - 300px);
+	height: 103px;
+	border: 1px solid red;
+	text-align: center;
+}
+
+.name-label h2 {
+	padding: 30px 0px;
+	font-size: 28px;
+	font-weight: 200;
+}
+
+.right-side-holder {
+	display: flex;
+	flex-direction: column;
+}
+
+.dashboard-holder .top-half-holder {
+	height: calc((100vh - 103px) / 2);
+	width: 100%;
+	background-color: red;
+}
+
+.dashboard-holder .bottom-half-holder {
+	height: calc((100vh - 103px) / 2);
+	width: 100%;
+	background-color: blue;
+}
