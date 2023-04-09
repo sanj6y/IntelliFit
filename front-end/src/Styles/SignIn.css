@@ -1,0 +1,293 @@
+.holder{
+    align-items: center;
+    justify-content: center;
+    margin-left: 0px;
+    padding-left: 0px;
+    overflow-y: hidden;
+}
+
+.holder.reset{
+    height: 800px;
+    align-items: center;
+    margin-left: 0px;
+    padding-left: 0px;
+    overflow-y: hidden;
+}
+
+.welcome-panel {
+    border-radius: 30px;
+    margin-top: 10vh;
+    justify-content: center;
+    overflow: hidden;
+    display: flex;
+    min-width: 400px;
+    flex-direction: column;
+    background: transparent;
+    background: white;
+    height: 800px;
+}
+
+
+.side-panel {
+    background: transparent;
+}
+
+.welcome {
+    background: rgb(255, 255, 255);
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    /* background:rgba(238, 234, 234, 0.399); */
+    width: 300px;
+    /* position: absolute; */
+    height: 575px;
+    border-radius: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-shadow: 0px 5px 20px 5px rgb(238, 238, 238);
+}
+
+.welcome.sign{
+    height: 600px;
+}
+
+.title {
+    margin-top: 40px;
+    font-family: Helvetica;
+    background: rgb(51, 33, 88);
+    color: black;
+    align-self: center;
+    height: 60px;
+    border-radius: 100px;
+    font-size: 2em;
+    display: flex;
+    padding-left: 8px;
+    padding-top: 25px;
+    padding-bottom: 18px;
+    padding-right: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0px 5px 20px 5px rgb(219, 209, 250);
+    overflow-y: hidden;
+}
+
+.title.sign{
+    margin-top: 20px;
+    height: 60px;
+}
+
+
+
+.title-holder-holder{
+    margin-top: 10px;
+    margin-bottom: 50px;
+    overflow-y: hidden;
+}
+
+.title-holder-holder.sign{
+    /* height: 80px; */
+    margin-bottom: 20px;
+}
+
+.title-holder-holder.reset{
+    width:300px;
+    margin-bottom: 0px;
+}
+.title-holder-holder h2{
+    font-size: 30px;
+    font-weight: 100;
+    color: rgb(111, 111, 111);
+}
+
+.title-holder-holder.sign{
+}
+
+.title b {
+    background: transparent;
+    font-weight: 200;
+}
+
+
+.holder input {
+    /* text-align: left; */
+    font-size: 15px;
+    border: none;
+    border-radius: 0.5em;
+    height: 46px;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 1.3em;
+    box-shadow: 0px 5px 20px 5px rgb(234, 234, 234);
+}
+
+.holder input.signup{
+    min-height: 43px;
+}
+
+.login {
+    font-size: 1em;
+    border: none;
+    font-weight: 100;
+    border-radius: 0.5em;
+    height: 45px;
+    background:  rgb(51, 33, 88);
+    color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: 20px;
+    /* box-shadow: 0px 5px 20px 5px rgb(196, 147, 221); */
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.login:hover {
+    background:  rgb(82, 66, 111);
+    cursor: pointer;
+}
+
+.login.signup{
+    margin-top: 10px;
+    min-height: 45px;
+}
+
+.noo-account {
+    font-family: sans-serif;
+    font-size: 0.5rem;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    background: rgb(255, 255, 255);
+    margin-top: 20px;
+    width: 300px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    align-items: center;
+    white-space: nowrap;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.forgot-password {
+    font-weight: 200;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    margin-left: 5.5em;
+}
+
+h1 {
+    color: rgb(188, 187, 187);
+    background: transparent;
+    font-weight: 200;
+}
+
+
+span {
+    font-weight: 200;
+    background: transparent;
+    padding: 0;
+    color: rgb(174, 174, 181);
+    text-decoration: none;
+}
+
+.forgot-password {
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    color: rgb(174, 174, 181);
+    text-decoration: underline;
+}
+
+.sign-up-button {
+    text-decoration: none;
+    background: transparent;
+}
+
+
+.sign-up-button:hover {
+    color: rgb(174, 174, 181);
+    text-decoration: underline;
+}
+
+.holder-link-holder-holder{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+}
+
+.holder-link-holder-holder span {
+    display: flex;
+    font-size: 15px;
+    margin-left: 15px;
+}
+
+
+.holder-link-holder-holder.sign{
+    margin-top: 10px;
+    overflow-x: hidden;
+    display: flex;
+}
+
+
+.welcomes.reset{
+    padding-top: 25px;
+    display: flex;
+    width: 350px;margin-right: 0px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input.email.reset{
+    width: 270px;
+}
+.welcome-panel.reset{
+    /* display: flex; */
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 20px 5px rgb(238, 238, 238);
+    height: 500px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 400px;
+    align-items: center;
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+
+.login.reset{
+    width: 300px;
+}
+.holder-link-holder-holder.reset{
+    display: flex;
+}
+
+.reset-navbar{
+    display: flex;
+    width: 300px;
+    margin-top: 40px;
+    justify-content: space-between;
+}
+.forgot-password.reset{
+    margin-left: 0px;
+}
+
+.holder-link-holder-holder-holder.sign{
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.holder.reset{
+    margin-top: 100px;
+    justify-content: center;
+    display: flex;
+}
+
+
+@media screen and (max-width: 800px){
+    .welcome-panel{
+        margin-top: 150px;
+    }
+}
