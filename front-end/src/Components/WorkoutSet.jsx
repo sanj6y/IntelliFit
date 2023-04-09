@@ -1,11 +1,13 @@
 import React from 'react'
 import '../Styles/WorkoutSet.css'
 
-export default function WorkoutSet({ workoutName, workoutContents, isDeletable, isEditable }) {
+export default function WorkoutSet({ name, workout }) {
     return (
         <div className='workout-set'>
-            <h2>{workoutName}</h2>
-            {workoutContents.map(item => <p>{item}</p>)}
+            <h2>{name}</h2>
+            {Object.keys(workout).map(key => {
+                return <p>{workout[key]}</p>
+            })}
         </div>
     )
 }

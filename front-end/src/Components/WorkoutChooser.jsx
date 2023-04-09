@@ -12,7 +12,6 @@ export default function WorkoutChooser() {
             <select name="workout-menu" id="workout-menu">
                 <option value="">Select an option</option>
                 {workouts.map((obj) => {
-                    console.log("hi")
                     return < option value={obj} > {obj}</option>
                 })}
             </select>
