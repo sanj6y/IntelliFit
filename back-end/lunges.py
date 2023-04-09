@@ -8,6 +8,7 @@ detector = PoseModule.poseDetector()
 
 repCount = 0
 direction = "up"
+side = "left"
 
 while True:
     ret, frame = cap.read()
@@ -21,6 +22,11 @@ while True:
         # Left Arm
         LarmAngle = detector.findAngle(frame, 11, 13, 15)
 
+        body = detector.findAngle(frame, 12, 24, 26)
+        body = detector.findAngle(frame, 11, 23, 25)
+        body = detector.findAngle(frame, 11, 12, 24)
+        body = detector.findAngle(frame, 23, 24, 26)
+
         # Right Leg
         RlegAngle = detector.findAngle(frame, 24, 26, 28)
         # Left Leg
@@ -28,12 +34,22 @@ while True:
 
         # percentage = np.interp(LarmAngle, (60, 130), (0, 100))
 
-        if direction == "up" and LlegAngle < 182.5 and RlegAngle > 190.5:
-            repCount += 0.5
-            direction = "down"
-        elif direction == "down" and LlegAngle > 171.5 and RlegAngle < 179.5:
+        if side == "left" and direction == "down" and LlegAngle > 170 and RlegAngle > 170:
             repCount += 0.5
             direction = "up"
+            side = "left"
+        elif side == "left" and direction == "up" and LlegAngle < 90 and RlegAngle < 90:
+            repCount += 0.5
+            direction = "down"
+            side = "right"
+        elif side == "right" and direction == "down" and LlegAngle > 170 and RlegAngle > 170:
+            repCount += 0.5
+            direction = "up"
+            side = "left"
+        elif side == "right" and direction == "up" and LlegAngle < 90 and RlegAngle < 90:
+            repCount += 0.5
+            direction = "down"
+            side = "left"
         
         print(repCount)
 
