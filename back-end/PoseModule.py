@@ -29,6 +29,7 @@ class poseDetector():
         return img
 
     def findPosition(self, img, draw=True):
+        print('entered position')
         self.lmList = []
         if self.results.pose_landmarks:
             for id, lm in enumerate(self.results.pose_landmarks.landmark):
@@ -38,6 +39,7 @@ class poseDetector():
                 self.lmList.append([id, cx, cy])
                 if draw:
                     cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
+        print(self.lmList)
         return self.lmList
 
     def findAngle(self, img, p1, p2, p3, draw=True):

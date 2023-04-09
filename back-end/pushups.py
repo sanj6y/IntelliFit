@@ -7,15 +7,20 @@ cap = cv2.VideoCapture('Videos/pushups.mp4')
 
 detector = PoseModule.poseDetector()
 
-repCount = 0
-# direction = "up"
+# repCount = 0
+direction = "up"
 accuracy = "N/A"
+repCount = 0
+accuracy = 1
 
-def predict(filepath, direction):
+def predict(filepath):
+    global direction
+    global accuracy
+    global repCount
+    global accuracy
     frame = cv2.imread(filepath)
     frame = detector.findPose(frame, False)
     landmarks = detector.findPosition(frame, False)
-
     if len(landmarks) != 0:
         # Right Arm
         RarmAngle = detector.findAngle(frame, 12, 14, 16)
@@ -40,7 +45,8 @@ def predict(filepath, direction):
             direction = "up"
             accuracy = (1 - abs(body - 50) / 100)
 
-        return [frame, repCount, accuracy, direction]
+        cv2.imwrite("res.jpg", frame)
+        return frame
 
 # while True:
 #     ret, frame = cap.read()
