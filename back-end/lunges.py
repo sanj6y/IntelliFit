@@ -7,13 +7,14 @@ cap = cv2.VideoCapture('Videos/lunges.mp4')
 detector = PoseModule.poseDetector()
 
 repCount = 0
-direction = "up"
 side = "left"
 
 while True:
     ret, frame = cap.read()
     frame = cv2.flip(frame, 1)
+    
     frame = detector.findPose(frame, False)
+    
     landmarks = detector.findPosition(frame, False)
 
     if len(landmarks) != 0:
@@ -32,24 +33,12 @@ while True:
         # Left Leg
         LlegAngle = detector.findAngle(frame, 23, 25, 27)
 
-        print(LlegAngle)
-
-        # if side == "left" and direction == "down" and LlegAngle < : # and RlegAngle > 170:
-        #     repCount += 0.5
-        #     direction = "up"
-        #     side = "left"
-        # elif side == "left" and direction == "up" and LlegAngle > : # and RlegAngle < 90:
-        #     repCount += 0.5
-        #     direction = "down"
-        #     side = "right"
-        # elif side == "right" and direction == "down" and LlegAngle < 183 and RlegAngle > 170:
-        #     repCount += 0.5
-        #     direction = "up"
-        #     side = "left"
-        # elif side == "right" and direction == "up" and LlegAngle < 90 and RlegAngle < 90:
-        #     repCount += 0.5
-        #     direction = "down"
-        #     side = "left"
+        if side == "left" and LlegAngle < 55 and RlegAngle < 130:
+            repCount += 1
+            side = "right"
+        elif side == "right" and LlegAngle < 130 and RlegAngle < 110:
+            repCount += 1
+            side = "left"
         
         print(repCount)
 
