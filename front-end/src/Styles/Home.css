@@ -1,3 +1,54 @@
-.logo-image {
-	width: 30%;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+* {
+	margin: 0;
+	font-family: "Open Sans", sans-serif;
+	overflow-x: hidden;
+}
+
+.home-holder {
+	text-align: left;
+}
+
+.image-slogan {
+	margin-top: 35vh;
+	margin-left: 5vw;
+	margin-bottom: 48vh;
+	align-items: center;
+}
+
+.image-slogan h1 {
+	font-size: 5rem;
+	margin-right: 5px;
+	display: inline;
+	color: #a437db;
+}
+
+.sloganText {
+	font-size: 2.5rem;
+	color: #bb84e8;
+}
+
+.about-holder {
+	width: 60vw;
+	overflow: hidden;
+	margin: 30em 5em;
+}
+
+.about-component {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+}
+
+.about-component img {
+	width: 45%;
+}
+
+.about-component p {
+	width: 45%;
+	font-size: 1.5rem;
+}
+
+.left {
+	flex-direction: row;
 }
