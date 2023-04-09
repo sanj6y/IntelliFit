@@ -20,6 +20,7 @@ import {
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 
+
 import '../Styles/Dashboard.css'
 import TotalTimePanel from '../Components/TotalTimePanel'
 import WorkoutChooser from '../Components/WorkoutChooser'
@@ -39,13 +40,13 @@ export default function Dashboard() {
         try {
             const q = query(
                 collection(db, 'users'),
-                where('uid', '==', currUser?.uid)
+                where('uid', '==', currUser.uid)
             );
             const doc = await getDocs(q);
             const data = doc.docs[0].data();
             setName(data.name);
         } catch (err) {
-            alert('An error had occurred while fetching the users name');
+            // alert('An error had occurred while fetching the users name');
             console.log(err)
         }
     };
@@ -64,73 +65,6 @@ export default function Dashboard() {
         return arr;
     }
 
-    useEffect(() => {
-
-        if (!currUser) return nav('/');
-        let allWorkoutsArr = []
-
-        const getDefaultWorkouts = async () => {
-            try {
-                const q = query(
-                    collection(db, "DEFAULT_WORKOUTS"),
-                    orderBy("lastUsed")
-                )
-                const unsub = onSnapshot(q, querySnapshot => {
-                    querySnapshot.forEach(workout => {
-                        let data = workout.data();
-                        data["isDeletable"] = false
-                        data["id"] = workout.id
-                        allWorkoutsArr.push(data)
-                    })
-
-                })
-
-                return () => unsub
-
-            } catch (e) {
-                console.error(e)
-                alert("Error: could not read from database")
-            }
-
-        }
-
-        const getUserWorkouts = async () => {
-            // getDefaultWorkouts();
-            try {
-                const q = query(
-                    collection(db, 'users'),
-                    where('uid', '==', currUser?.uid)
-                );
-                console.log("here!")
-                const userDoc = await getDocs(q);
-                setUser(userDoc.docs[0].id)
-
-                if (user !== '') {
-                    const q = query(collection(db, 'users', user, 'workouts'), orderBy("lastUsed"))
-                    console.log("hello there")
-                    const unsub = onSnapshot(q, (querySnapshot) => {
-                        querySnapshot.forEach(workout => {
-                            let data = workout.data();
-                            data["isDeletable"] = true
-                            allWorkoutsArr.push(data);
-                        })
-                        allWorkoutsArr = sortArray(allWorkoutsArr)
-                        console.log(allWorkoutsArr)
-                        setAllWorkouts([...allWorkoutsArr])
-                    })
-
-                    return () => unsub
-                }
-
-            } catch (err) {
-                return;
-            }
-        }
-
-        getUserWorkouts()
-        fetchUserName();
-
-    }, [])
 
     return (
         <div className="dashboard-holder">
@@ -146,7 +80,7 @@ export default function Dashboard() {
                 </div>
                 <div className="bottom-half-holder">
                     {allWorkouts.map(workout => {
-                        return <WorkoutSet name={workout.name} workout={workout.exercises} isDeletable={workout.isDeletable} docID={workout.id} />
+                        return <WorkoutSet key={workout.id} name={workout.name} workout={workout.exercises} isDeletable={workout.isDeletable} docID={workout.id} />
                     })}
                 </div>
             </div>
