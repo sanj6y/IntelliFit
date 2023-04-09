@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-import tensorflow as tf
 import PoseModule
 
 cap = cv2.VideoCapture('Videos/squats.mp4')
