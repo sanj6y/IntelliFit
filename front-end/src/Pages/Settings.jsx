@@ -83,30 +83,43 @@ export default function Settings() {
     }, [currUser])
 
     return (
-        <div className="settings-holder">
+        <div className='settings-page-holder-holder'>
             <Sidebar />
-            <div className="settings-content">
-                <div className="name-change">
-                    <h2>Name</h2>
-                    <p>Change your current display name.</p>
-                    <form onSubmit={e => { e.preventDefault(); changeName() }}>
-                        <input type="text" placeholder='Enter New Name' ref={nameRef} />
-                    </form>
+            <div className="settings-holder">
+                
+                <div className="right-side-holder">
+                    <div className='name-label'>
+                        <h2>Welcome, {name.indexOf(" ") !== -1 ? name.substring(0, name.indexOf(" ")) : name}!</h2>
+                    </div>
                 </div>
-                <div className="change-email">
-                    <h2>Email</h2>
-                    <p>Change your current email</p>
+                <div className="settings-content">
+                    <div className='title-holder-holder'>
+                        <h1>Edit Profile</h1>
+                        <hr/>
+                    </div>
+                    <div className="name-change">
+                        <h2>Name</h2>
+                        <p>Change your current display name.</p>
+                        <form onSubmit={e => { e.preventDefault(); changeName() }}>
+                            <input type="text" placeholder='Enter New Name' ref={nameRef} />
+                        </form>
+                    </div>
+                    <div className="change-email">
+                        <h2>Email</h2>
+                        <p>Change your current email</p>
 
-                    <form onSubmit={(e) => { e.preventDefault(); changeEmail() }}>
-                        <input type="email" placeholder='New Email' ref={emailRef} />
+                        <form onSubmit={(e) => { e.preventDefault(); changeEmail() }}>
+                            <input type="email" placeholder='New Email' ref={emailRef} />
 
-                        <input type="submit" />
-                    </form>
+                            <input className="temp-submit" type="submit" />
+                        </form>
 
+                    </div>
+
+                    <button onClick={() => deleteAccount()}>Delete Account</button>
                 </div>
-
-                <button onClick={() => deleteAccount()}>Delete Account</button>
             </div>
         </div>
+       
     )
 }

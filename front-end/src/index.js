@@ -9,6 +9,7 @@ import WorkoutDisplay from "./Pages/WorkoutDisplay.jsx";
 import Dashboard from "./Pages/Dashboard.jsx";
 import Settings from "./Pages/Settings.jsx";
 import AddWorkout from "./Pages/AddWorkout.jsx";
+import WorkoutGallery from "./Pages/WorkoutGallery.jsx"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -20,12 +21,11 @@ root.render(
 				<Route path="/" element={<Home />} />
 				<Route path="/signup" element={<SignUp />} />
 				<Route path="/signin" element={<SignIn />} />
-				<Route path="/main" element={<WorkoutDisplay />} />
 				<Route path="/reset" element={<Reset />} />
 				<Route path="/workout" element={<WorkoutDisplay />} />
 				<Route path="/dashboard" element={<Dashboard />} />
+				<Route path="/gallery" element={<WorkoutGallery/>}/>
 				<Route path="/settings" element={<Settings />} />
-				<Route path="/add" element={<AddWorkout />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>
