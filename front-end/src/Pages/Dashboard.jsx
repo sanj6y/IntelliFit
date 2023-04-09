@@ -33,8 +33,22 @@ export default function Dashboard() {
     const [currUser, loading] = useAuthState(auth)
     const [user, setUser] = useState('')
 
+    const sortArray = (arr) => {
+        arr = arr.sort((a, b) => {
+            if (a.lastUsed > b.lastUsed) {
+                return 1
+            } else if (a.lastUsed < b.lastUsed) {
+                return -1
+            } else {
+                return 0
+            }
+        })
+
+        return arr;
+    }
+
     useEffect(() => {
-        const allWorkoutsArr = []
+        let allWorkoutsArr = []
 
         const getDefaultWorkouts = async () => {
             try {
@@ -45,6 +59,9 @@ export default function Dashboard() {
                 const unsub = onSnapshot(q, querySnapshot => {
                     querySnapshot.forEach(workout => {
                         let data = workout.data();
+                        data["isDeletable"] = false
+                        data["id"] = workout.id
+                        console.log(data)
                         allWorkoutsArr.push(data)
                     })
 
@@ -77,9 +94,10 @@ export default function Dashboard() {
                     const unsub = onSnapshot(q, (querySnapshot) => {
                         querySnapshot.forEach(workout => {
                             let data = workout.data();
+                            data["isDeletable"] = true
                             allWorkoutsArr.push(data);
                         })
-
+                        allWorkoutsArr = sortArray(allWorkoutsArr)
                         setAllWorkouts(allWorkoutsArr)
                     })
 
@@ -107,7 +125,7 @@ export default function Dashboard() {
                 </div>
                 <div className="bottom-half-holder">
                     {allWorkouts.map(workout => {
-                        return <WorkoutSet name={workout.name} workout={workout.exercises} />
+                        return <WorkoutSet name={workout.name} workout={workout.exercises} isDeletable={workout.isDeletable} docID={workout.id} />
                     })}
                 </div>
             </div>
