@@ -86,7 +86,6 @@ export default function Dashboard() {
         return arr;
     }
 
-<<<<<<< HEAD
 
     useEffect(() => {
 
@@ -142,8 +141,6 @@ export default function Dashboard() {
     //     }
 
     // }, [ currUser, allOfWorkouts])
-=======
->>>>>>> 75d2de38716248b184f659ea7ab36fbd78f47798
 
     return (
         <div className="dashboard-holder">
@@ -158,15 +155,9 @@ export default function Dashboard() {
                     <WorkoutChooser />
                 </div>
                 <div className="bottom-half-holder">
-<<<<<<< HEAD
                     {allOfWorkouts.length !== 0 ? allOfWorkouts.map(workout => {
                         return <WorkoutSet name={workout.name} workout={workout.exercises} isDeletable={workout.isDeletable} docID={workout.id} />
                     }): <></>}
-=======
-                    {allWorkouts.map(workout => {
-                        return <WorkoutSet key={workout.id} name={workout.name} workout={workout.exercises} isDeletable={workout.isDeletable} docID={workout.id} />
-                    })}
->>>>>>> 75d2de38716248b184f659ea7ab36fbd78f47798
                 </div>
             </div>
         </div >
