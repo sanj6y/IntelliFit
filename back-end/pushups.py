@@ -2,13 +2,13 @@ import cv2
 import numpy as np
 import PoseModule
 
-cap = cv2.VideoCapture(0)
-print(cap.isOpened())
+cap = cv2.VideoCapture('Videos/pushups.mp4')
 
 detector = PoseModule.poseDetector()
 
 repCount = 0
 direction = "up"
+accuracy = "N/A"
 
 while True:
     ret, frame = cap.read()
@@ -40,9 +40,10 @@ while True:
         elif direction == "down" and LarmAngle < 208:
             repCount += 0.5
             direction = "up"
+            accuracy = (1 - abs(body - 50) / 100)
         
         print(repCount)
-
+        print(accuracy)
 
         cv2.imshow("Pushups Detector", frame)
 
