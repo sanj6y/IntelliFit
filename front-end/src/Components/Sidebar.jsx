@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Styles/Sidebar.css'
 import logo from "../logo.png"
-import { auth, db, logout} from '../firebase'
+import { auth, db, logout } from '../firebase'
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ export default function Sidebar() {
     return (
         <div className="sidebar">
             <div className='logoText'>
-                <img src={logo} width={45} height={25}/>
+                <img src={logo} width={45} height={25} />
                 <h3>IntelliFit</h3>
             </div>
             <div className='nav-buttons'>
@@ -22,7 +22,7 @@ export default function Sidebar() {
                 <button onClick={()=>{nav('/settings')}}><i class="bi bi-gear-fill"/>Settings</button>
             </div>
 
-            <button className='logout-button' onClick={()=>{logout()}}><i class="bi bi-box-arrow-left"/>Logout</button>
+            <button className='logout-button' onClick={() => { logout(); nav("/") }}><i class="bi bi-box-arrow-left" />Logout</button>
         </div>
     )
 }

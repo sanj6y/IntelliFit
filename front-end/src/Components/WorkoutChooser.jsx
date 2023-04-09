@@ -12,7 +12,7 @@ export default function WorkoutChooser() {
             <select name="workout-menu" id="workout-menu">
                 <option value="">Select an option</option>
                 {workouts.map((obj) => {
-                    return < option value={obj} > {obj}</option>
+                    return < option key={obj} value={obj} > {obj}</option>
                 })}
             </select>
         </div >

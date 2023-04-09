@@ -9,7 +9,9 @@ export default function CameraComponent() {
 
     const captureImage = useCallback(() => {
         const imageSrc = webcamRef.current.getScreenshot(); // pass this into python
+        console.log(imageSrc)
         setSource(imageSrc)
+
     }, [webcamRef])
 
     useEffect(() => {
