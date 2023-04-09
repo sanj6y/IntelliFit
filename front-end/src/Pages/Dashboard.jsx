@@ -30,8 +30,7 @@ export default function Dashboard() {
 
     const nav = useNavigate();
     const [name, setName] = useState("")
-    const [lastWorkouts, setLastWorkouts] = useState(['workout1', 'workout2', 'workout3', 'workout4'])
-
+    const [allOfWorkouts, setAllOfWorkouts] = useState([])
     const [allWorkouts, setAllWorkouts] = useState([])
     const [currUser, loading] = useAuthState(auth)
     const [user, setUser] = useState('')
@@ -51,6 +50,28 @@ export default function Dashboard() {
         }
     };
 
+    const fetchDefaultWorkouts = async () => {
+        try {
+            const q = query(
+                collection(db, 'users'),
+                where('uid', '==', currUser?.uid)
+            );
+            const doc = await getDocs(q);
+            const data = doc.docs[0].data();
+
+            let ex1 = {"exercises": data.exercises1, "name": data.name1, "lastUsed":data.lastUsed1};
+            let ex2 = {"exercises": data.exercises2, "name": data.name2, "lastUsed":data.lastUsed2};
+            let ex3 = {"exercises": data.exercises1, "name": data.name1, "lastUsed":data.lastUsed1};
+            let arr = [ex1, ex2, ex3]
+            setAllOfWorkouts([...arr])
+
+            
+        } catch (err) {
+            alert('An error had occurred while fetching the users name');
+            console.log(err)
+        }
+    };
+
     const sortArray = (arr) => {
         arr = arr.sort((a, b) => {
             if (a.lastUsed > b.lastUsed) {
@@ -65,6 +86,64 @@ export default function Dashboard() {
         return arr;
     }
 
+<<<<<<< HEAD
+
+    useEffect(() => {
+
+        if (!currUser) return nav('/');
+        fetchUserName();
+        fetchDefaultWorkouts();
+    }, [currUser])
+
+    // useEffect(() => {
+
+    //     if (!currUser) return nav('/');
+    //     let allWorkoutsArr = []
+
+
+    //     const getUserWorkouts = async () => {
+    //         try {
+    //             const q = query(
+    //                 collection(db, 'users'),
+    //                 where('uid', '==', currUser?.uid)
+    //             );
+    //             const userDoc = await getDocs(q);
+    //             setUser(userDoc.docs[0].id)
+
+    //             if (user !== undefined) {
+    //                 console.log("sdf") 
+    //                 const q = query(collection(db, 'users', user, 'workouts'))
+    //                 console.log("hello there")
+    //                 let tempData = []
+    //                 const unsub = onSnapshot(q, (querySnapshot) => {
+    //                     querySnapshot.forEach(workout => {
+    //                         let data = workout.data();
+    //                         data["isDeletable"] = true
+    //                         tempData.push(data);
+    //                     })
+
+    //                     console.log(tempData + " sdfs")
+    //                     setAllOfWorkouts([...tempData])
+    //                 })
+
+    //                 return () => unsub
+    //             }
+
+    //         } catch (err) {
+    //             return;
+    //         }
+    //     }
+
+    //     if(currUser && allOfWorkouts.length!== 0){
+    //         console.log(allOfWorkouts)
+    //         console.log(currUser) 
+    //         getUserWorkouts();
+    //         console.log(allOfWorkouts)
+    //     }
+
+    // }, [ currUser, allOfWorkouts])
+=======
+>>>>>>> 75d2de38716248b184f659ea7ab36fbd78f47798
 
     return (
         <div className="dashboard-holder">
@@ -79,9 +158,15 @@ export default function Dashboard() {
                     <WorkoutChooser />
                 </div>
                 <div className="bottom-half-holder">
+<<<<<<< HEAD
+                    {allOfWorkouts.length !== 0 ? allOfWorkouts.map(workout => {
+                        return <WorkoutSet name={workout.name} workout={workout.exercises} isDeletable={workout.isDeletable} docID={workout.id} />
+                    }): <></>}
+=======
                     {allWorkouts.map(workout => {
                         return <WorkoutSet key={workout.id} name={workout.name} workout={workout.exercises} isDeletable={workout.isDeletable} docID={workout.id} />
                     })}
+>>>>>>> 75d2de38716248b184f659ea7ab36fbd78f47798
                 </div>
             </div>
         </div >
