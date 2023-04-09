@@ -45,6 +45,11 @@ def predict(filepath):
             direction = "up"
             accuracy = (1 - abs(body - 50) / 100)
 
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        rep_count_text = f'Rep Count: {repCount}'
+        accuracy_text = f'Accuracy: {accuracy}'
+        cv2.putText(frame, rep_count_text, (10, 30), font, 1, (0, 255, 0), 2, cv2.LINE_AA)
+        cv2.putText(frame, accuracy_text, (10, 70), font, 1, (0, 255, 0), 2, cv2.LINE_AA)
         cv2.imwrite("res.jpg", frame)
         return frame
 
@@ -84,3 +89,5 @@ def predict(filepath):
 
 #         if cv2.waitKey(1) & 0xFF == ord('q'):
 #             break
+
+# main method
