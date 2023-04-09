@@ -3,11 +3,12 @@ import ReactDOM from "react-dom/client";
 
 import Home from "./Pages/Home.jsx";
 import SignIn from "./Pages/SignIn";
-import Reset from "./Pages/Reset.jsx"
+import Reset from "./Pages/Reset.jsx";
 import SignUp from "./Pages/SignUp";
 import WorkoutDisplay from "./Pages/WorkoutDisplay.jsx";
 import Dashboard from "./Pages/Dashboard.jsx";
 import Settings from "./Pages/Settings.jsx";
+import AddWorkout from "./Pages/AddWorkout.jsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -20,10 +21,11 @@ root.render(
 				<Route path="/signup" element={<SignUp />} />
 				<Route path="/signin" element={<SignIn />} />
 				<Route path="/main" element={<WorkoutDisplay />} />
-				<Route path="/reset" element={<Reset/>} />
+				<Route path="/reset" element={<Reset />} />
 				<Route path="/workout" element={<WorkoutDisplay />} />
 				<Route path="/dashboard" element={<Dashboard />} />
 				<Route path="/settings" element={<Settings />} />
+				<Route path="/add" element={<AddWorkout />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>

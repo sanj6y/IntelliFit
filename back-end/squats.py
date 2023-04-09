@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-import tensorflow as tf
 import PoseModule
 
 cap = cv2.VideoCapture('Videos/squats.mp4')
@@ -8,7 +7,7 @@ cap = cv2.VideoCapture('Videos/squats.mp4')
 detector = PoseModule.poseDetector()
 repCount = 0
 direction = "down"
-accuracy = 1
+accuracy = "N/A"
 
 while True:
     ret, frame = cap.read()
