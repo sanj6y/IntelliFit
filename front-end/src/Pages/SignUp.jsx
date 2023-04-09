@@ -15,7 +15,7 @@ function Register() {
         if (loading) {
             return;
         }
-        // if (currUser) nav("/dash");
+        if (currUser) nav("/dashboard");
     }, [currUser, loading]);
 
     function confirmPass() {

@@ -1,12 +1,11 @@
 .sidebar {
-	width: 300px;
+	position: relative;
+	min-width: 250px;
+	max-width: 250px;
 	height: 100vh;
-	background-color: #f4edfa;
-
+	background-color: #4e1d67;
 	display: flex;
 	flex-direction: column;
-
-	justify-content: space-between;
 	align-items: center;
 }
 
@@ -15,9 +14,10 @@
 	font-size: 20px;
 	margin-top: 20px;
 	text-align: center;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 	width: 100%;
 }
+
 
 .sidebar .logoText {
 	display: flex;
@@ -25,15 +25,30 @@
 }
 
 .sidebar .logoText h3 {
-	margin: 0px;
+	margin-left: 5px;
 	font-weight: normal;
-	color: #a437db;
+	color: #daaff0;
 }
 
 .sidebar .logoText img {
-	width: 25%;
-	margin: 0px;
-	margin-left: 20%;
+    font-family: Helvetica;
+    background: rgb(51, 33, 88);
+    color: black;
+    align-self: center;
+    height: 40px;
+    border-radius: 100px;
+    font-size: 2em;
+    display: flex;
+    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0px 5px 20px 5px  #3a154d;
+    overflow-y: hidden;
+	width: 35px;
+	margin-top: 10px;
+	margin-left: 20px;
 	margin-right: 10px;
 }
 
@@ -43,7 +58,7 @@
 	width: 100%;
 	height: 40%;
 
-	transform: translateY(-250px);
+	/* transform: translateY(-250px); */
 }
 
 .sidebar button {
@@ -52,36 +67,55 @@
 }
 
 .nav-buttons button {
-	height: 20%;
-	height: 50%;
+	text-align: start;
+	padding-left: 20px;
+	height: 60px;
 	width: 100%;
-	background-color: #f4edfa;
+	font-size: 17px;
+	color: rgb(245, 174, 245);
+	background-color: transparent;
 
 	transition: all 0.2s ease;
 }
 
 .nav-buttons button:hover {
 	cursor: pointer;
-	background-color: #c8c1cf;
+	color: #a37ab7;
+	background-color: #321242;
 }
 
 .sidebar button:hover {
 	cursor: pointer;
 }
 
+.nav-buttons i{
+	margin-right: 10px;
+}
+
 .sidebar button.logout-button {
-	background-color: red;
-
-	margin-bottom: 50px;
-	width: 50%;
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	border: 1px solid #a37ab7 ;
+	background: transparent;
+	width: 180px;
+	font-size: 15px;
 	border-radius: 0.5rem;
-	height: 50px;
-
-	color: white;
+	height: 30px;
+	/* margin-left: 20px; */
+	margin-bottom: 20px;
+	align-self:center;
+	color: #a37ab7;
+	text-align: center;
+	justify-content: center;
 
 	transition: all 0.2s ease;
 }
 
+.logout-button i{
+	margin-right: 10px;
+}
+
 .sidebar button.logout-button:hover {
-	background-color: rgba(200, 0, 0);
+	background-color: #321242;
 }
