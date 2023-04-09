@@ -16,7 +16,7 @@ export default function CameraComponent() {
 
         const imageCapture = setInterval(() => {
             captureImage();
-        }, 100.0 / 3)
+        }, 20)
 
     }, [])
 
