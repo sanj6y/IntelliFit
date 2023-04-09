@@ -1,13 +1,13 @@
 import cv2
 import numpy as np
 import PoseModule
-import tensorflow as tf
 
 cap = cv2.VideoCapture('Videos/overhead-press.mp4')
 
 detector = PoseModule.poseDetector()
 repCount = 0
 direction = "up"
+accuracy = "N/A"
 
 while True:
     ret, frame = cap.read()
@@ -25,8 +25,10 @@ while True:
         if direction == "down" and (LarmAngle < 50 or RarmAngle < 50):
             repCount += 0.5
             direction = "up"
+            accuracy = (1 - abs(RarmAngle - 90) / 100)
 
         print(repCount)
+        print(accuracy)
 
     cv2.imshow("Squats Detector", frame)
 

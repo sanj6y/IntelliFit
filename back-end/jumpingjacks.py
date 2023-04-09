@@ -2,12 +2,13 @@ import cv2
 import numpy as np
 import PoseModule
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture("Videos/jumping-jacks.mp4")
 
 detector = PoseModule.poseDetector()
 
 repCount = 0
 direction = "up"
+accuracy = "N/A"
 
 while True:
     ret, frame = cap.read()
@@ -36,11 +37,13 @@ while True:
         if direction == "up" and LarmAngle < 110 and RarmAngle > 235:
             repCount += 0.5
             direction = "down"
+            accuracy = (1 - abs(LarmAngle - 100) / 100)
         elif direction == "down" and LarmAngle > 170 and RarmAngle < 190:
             repCount += 0.5
             direction = "up"
 
         print(repCount)
+        print(accuracy)
 
         cv2.imshow("Jumping Jacks Detector", frame)
 
