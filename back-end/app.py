@@ -40,7 +40,7 @@ import base64
 
 app = Flask(__name__)
 
-@app.route('/image-receiver', methods=['POST', 'GET'])
+@app.route('/image-receiver', methods=['POST'])
 
 # going to need to get direction and repCount from image receiver!!!
 def image_receiver():
@@ -65,9 +65,5 @@ def image_receiver():
     results = pushups.predict(filepath)
     print(results)
 
-    with open('res.jpg', "rb") as img_file:
-        b64String = str(base64.b64encode(img_file.read()))
-
-    return jsonify(b64String)
 if __name__ == '__main__':
     app.run(debug=True)

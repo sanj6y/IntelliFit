@@ -9,6 +9,8 @@ export default function CameraComponent() {
     const [img_source, setSource] = useState(null)
     const [data, setData] = useState([])
 
+    const [time, setTime] = useState(0);
+
     const captureImage = useCallback( () => {
        
         const imageSrc = webcamRef.current.getScreenshot(); // pass this into python
@@ -20,31 +22,27 @@ export default function CameraComponent() {
             body: JSON.stringify(imageSrc),
             mode: 'no-cors',
         })
-        .then(response => response.json())
-        .then((data) => {
-            console.log(data)
-        })
+        .then(response => console.log(response.json()))
         .catch(error => {
             console.error(error)
         })
-
-        // axios.post('http://127.0.0.1:5000/image-receiver', { baseString: imageSrc, mode: 'cors'})
-        // .then(function (response){console.log(response.data)})
-        // .catch(function (error) {
-        //     alert(error)
-        //     console.log(error)
-        // })
     }, [webcamRef])
 
     useEffect( () => {
         const imageCapture = setInterval(() => {
             captureImage();
-        }, 200)
+        }, 0)
         }, [])
+
+    // useEffect( () => {
+    //     const timeInterval = setInterval(() => {
+    //         setSource(require("../res.jpg"))
+    //     }, 500)
+    // }, [time])
 
     return (
         <div>
-            <Webcam ref={webcamRef} mirrored={true} screenshotFormat='image/jpeg' width={500} />
+            <Webcam ref={webcamRef} mirrored={true} screenshotFormat='image/jpeg' width={0} minScreenshotWidth={500} />
             <img src={img_source} />
         </div>
     )

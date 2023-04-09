@@ -48,9 +48,9 @@ def predict(filepath):
         font = cv2.FONT_HERSHEY_SIMPLEX
         rep_count_text = f'Rep Count: {repCount}'
         accuracy_text = f'Accuracy: {accuracy}'
-        cv2.putText(frame, rep_count_text, (10, 30), font, 1, (0, 255, 0), 2, cv2.LINE_AA)
-        cv2.putText(frame, accuracy_text, (10, 70), font, 1, (0, 255, 0), 2, cv2.LINE_AA)
-        cv2.imwrite("res.jpg", frame)
+        cv2.putText(frame, rep_count_text, (10, 50), font, 1.5, (0, 255, 0), 2, cv2.LINE_AA)
+        cv2.putText(frame, accuracy_text, (10, 100), font, 1.5, (0, 255, 0), 2, cv2.LINE_AA)
+        cv2.imwrite("../front-end/src/res.jpg", frame)
         return frame
 
 # while True:
@@ -90,4 +90,5 @@ def predict(filepath):
 #         if cv2.waitKey(1) & 0xFF == ord('q'):
 #             break
 
-# main method
+if __name__ == '__main__':
+    predict('Videos/pushup.png')
