@@ -16,13 +16,13 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCxyJ6MXTn1JFbZP81kIVvHxwTd0Oq6Dq4",
-    authDomain: "intel-fit.firebaseapp.com",
-    projectId: "intel-fit",
-    storageBucket: "intel-fit.appspot.com",
-    messagingSenderId: "223676316026",
-    appId: "1:223676316026:web:b49bcb91f3e1f238747ec3",
-    measurementId: "G-X8Y469F32Q"
+	apiKey: "AIzaSyBwvhvUCrckWlh4EYdMwW9cIxSXIG8hvYo",
+	authDomain: "intellifit-e4444.firebaseapp.com",
+	projectId: "intellifit-e4444",
+	storageBucket: "intellifit-e4444.appspot.com",
+	messagingSenderId: "442011661166",
+	appId: "1:442011661166:web:729ac6f285f8e2ce51077f",
+	measurementId: "G-2HN58VNPTS",
 };
 
 const app = initializeApp(firebaseConfig);
