@@ -42,12 +42,30 @@ const register = async (name, email, password) => {
 	try {
 		const res = await createUserWithEmailAndPassword(auth, email, password);
 		const user = res.user;
-		await addDoc(collection(db, "users"), {
+		await setDoc(doc(db, "users", user.uid), {
 			uid: user.uid,
 			name,
 			authProvider: "local",
 			email,
 			minutes: 0,
+		});
+
+		await setDoc(doc(db, "users", user.uid, "workouts", "SET1"), {
+			name: "The Ultimate Burn",
+			exercises: { pushup: "15 r", situp: "15 r", squat: "15 r" },
+			lastUsed: new Date(),
+		});
+
+		await setDoc(doc(db, "users", user.uid, "workouts", "SET2"), {
+			name: "The Timed Burn",
+			exercises: { lunges: "15 s", dips: "15 s", plank: "15 s" },
+			lastUsed: new Date(),
+		});
+
+		await setDoc(doc(db, "users", user.uid, "workouts", "SET3"), {
+			name: "The Hard Roast",
+			exercises: { lunges: "15 r", pushup: "15 r", situp: "15 s" },
+			lastUsed: new Date(),
 		});
 	} catch (err) {
 		console.log(err);

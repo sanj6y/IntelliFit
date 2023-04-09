@@ -61,12 +61,9 @@ export default function Dashboard() {
                         let data = workout.data();
                         data["isDeletable"] = false
                         data["id"] = workout.id
-                        console.log(data)
                         allWorkoutsArr.push(data)
                     })
 
-                    setAllWorkouts(allWorkoutsArr)
-                    console.log(allWorkouts)
                 })
 
                 return () => unsub
@@ -79,18 +76,19 @@ export default function Dashboard() {
         }
 
         const getUserWorkouts = async () => {
-            await getDefaultWorkouts();
+            // getDefaultWorkouts();
             try {
                 const q = query(
                     collection(db, 'users'),
                     where('uid', '==', currUser?.uid)
                 );
+                console.log("here!")
                 const userDoc = await getDocs(q);
-                // return userDoc.docs[0].id;
                 setUser(userDoc.docs[0].id)
 
-                if (user !== '' || user !== undefined) {
-                    const q = query(collection(db, 'users', user, 'workouts'), orderBy("day"))
+                if (user !== '') {
+                    const q = query(collection(db, 'users', user, 'workouts'), orderBy("lastUsed"))
+                    console.log("hello there")
                     const unsub = onSnapshot(q, (querySnapshot) => {
                         querySnapshot.forEach(workout => {
                             let data = workout.data();
@@ -98,7 +96,8 @@ export default function Dashboard() {
                             allWorkoutsArr.push(data);
                         })
                         allWorkoutsArr = sortArray(allWorkoutsArr)
-                        setAllWorkouts(allWorkoutsArr)
+                        console.log(allWorkoutsArr)
+                        setAllWorkouts([...allWorkoutsArr])
                     })
 
                     return () => unsub
@@ -111,7 +110,7 @@ export default function Dashboard() {
 
         getUserWorkouts()
 
-    }, [currUser])
+    }, [])
 
     return (
         <div className="dashboard-holder">
