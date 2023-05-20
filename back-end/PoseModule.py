@@ -29,23 +29,25 @@ class poseDetector():
         return img
 
     def findPosition(self, img, draw=True):
-        self.lmList = []
+        print('entered position')
+        self.landmarks = []
         if self.results.pose_landmarks:
             for id, lm in enumerate(self.results.pose_landmarks.landmark):
                 h, w, c = img.shape
                 # print(id, lm)
                 cx, cy = int(lm.x * w), int(lm.y * h)
-                self.lmList.append([id, cx, cy])
+                self.landmarks.append([id, cx, cy])
                 if draw:
                     cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
-        return self.lmList
+        print(self.landmarks)
+        return self.landmarks
 
     def findAngle(self, img, p1, p2, p3, draw=True):
 
         # Get the landmarks
-        x1, y1 = self.lmList[p1][1:]
-        x2, y2 = self.lmList[p2][1:]
-        x3, y3 = self.lmList[p3][1:]
+        x1, y1 = self.landmarks[p1][1:]
+        x2, y2 = self.landmarks[p2][1:]
+        x3, y3 = self.landmarks[p3][1:]
 
         # Calculate the Angle
         angle = math.degrees(math.atan2(y3 - y2, x3 - x2) -
@@ -78,10 +80,10 @@ def main():
         img = cv2.resize(img, (1280, 720))
         # cv2.imshow("mg",img)
         img = detector.findPose(img)
-        lmList = detector.findPosition(img, draw=False)
-        if len(lmList) != 0:
-            print(lmList[14])
-            cv2.circle(img, (lmList[14][1], lmList[14][2]), 15, (0, 0, 255), cv2.FILLED)
+        landmarks = detector.findPosition(img, draw=False)
+        if len(landmarks) != 0:
+            print(landmarks[14])
+            cv2.circle(img, (landmarks[14][1], landmarks[14][2]), 15, (0, 0, 255), cv2.FILLED)
 
         cTime = time.time()
         fps = 1 / (cTime - pTime)
