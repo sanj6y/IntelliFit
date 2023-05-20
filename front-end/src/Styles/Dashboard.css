@@ -6,7 +6,7 @@
 
 .dashboard-holder .name-label {
 	position: absolute;
-	top:0;
+	top: 0;
 	width: calc(100vw - 250px);
 	background: #3a154d;
 	text-align: center;
@@ -45,4 +45,6 @@
 	height: calc((100vh - 153px) / 2);
 	display: flex;
 	flex-direction: row;
+
+	padding-top: 50px;
 }

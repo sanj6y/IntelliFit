@@ -9,7 +9,6 @@ export default function CameraComponent() {
 
     const captureImage = useCallback(() => {
         const imageSrc = webcamRef.current.getScreenshot(); // pass this into python
-        console.log(imageSrc)
         setSource(imageSrc)
 
     }, [webcamRef])
@@ -24,8 +23,8 @@ export default function CameraComponent() {
 
     return (
         <div>
-            <Webcam ref={webcamRef} mirrored={true} screenshotFormat='image/jpeg' width={500} />
-            <img src={img_source} />
+            <Webcam ref={webcamRef} mirrored={true} screenshotFormat='image/jpeg' width={0} minScreenshotWidth={500} />
+            <img src={img_source} className="displayed-image" />
         </div>
     )
 }
