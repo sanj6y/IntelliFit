@@ -2,12 +2,13 @@ import cv2
 import numpy as np
 import PoseModule
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
+#cap = cv2.VideoCapture('Videos/squats.mp4')
 
 detector = PoseModule.poseDetector()
 repCount = 0
 direction = "down"
-accuracy = "N/A"
+accuracy = 0
 
 def processSquats():
     global direction
